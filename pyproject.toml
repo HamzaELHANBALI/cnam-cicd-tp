@@ -1,0 +1,9 @@
+[project]
+name = "tp_app"
+version = "0.1.0"
+description = "Projet support des TPs CI/CD du CNAM"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
