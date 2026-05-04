@@ -13,21 +13,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: "pip"
-
       - name: Install dependencies
-        run: |
+        run:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
-
       - name: Run tests
         run: pytest -v
-
   lint:
     name: check coding style
     runs-on: ubuntu-latest
@@ -40,7 +36,7 @@ jobs:
           python-version: "3.13"
 
       - name: install dependencies
-        run: |
+        run:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
       - name: run flake8
