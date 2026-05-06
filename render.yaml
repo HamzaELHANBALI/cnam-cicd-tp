@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: cnam-cicd-demo
+    runtime: python
+    buildCommand: pip install .
+    startCommand: python -m uvicorn tp_app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONPATH
+        value: src
+    healthCheckPath: /health
