@@ -2,20 +2,24 @@
 
 Repo support de la **séance 2** du cours CNAM (CI/CD avec GitHub Actions).
 
-Trois TPs progressifs :
+Cinq TPs progressifs :
 
 1. [TP1 — Premier workflow : pytest sur push](docs/tp1-pytest.md)
 2. [TP2 — Job flake8 en parallèle](docs/tp2-flake8.md)
 3. [TP3 — Revue de code automatique par LLM (DeepSeek)](docs/tp3-llm-review.md)
+4. [TP4 — Déploiement continu sur Render](docs/tp4-deploy.md)
+5. [TP5 — Sécurité : secrets et audit des dépendances](docs/tp5-security.md)
 
 ## Structure
 
 ```text
-src/tp_app/         Code Python (calculator, text_tools)
-tests/              Tests pytest
-scripts/            Script utilitaire (créé au TP3)
-docs/               Énoncés des TPs avec workflows à recopier
-.github/workflows/  Construits en direct pendant les TPs
+src/tp_app/          Code Python (calculator, text_tools, API FastAPI)
+tests/               Tests pytest (unitaires + API)
+scripts/             Script de revue IA (utilisé au TP3)
+docs/                Énoncés des TPs
+docs/workflows/      Workflows de référence à recopier dans .github/workflows/
+render.yaml          Configuration de déploiement Render (TP4)
+.github/workflows/   À construire pendant les TPs (vide au départ)
 ```
 
 ## Installation locale
@@ -29,8 +33,9 @@ pip install -r requirements-dev.txt
 ## Commandes utiles
 
 ```bash
-pytest -v              # lancer les tests
-flake8 src tests       # vérifier le style
+pytest -v                                          # lancer les tests
+flake8 .                                           # vérifier le style
+PYTHONPATH=src uvicorn tp_app.main:app --reload    # lancer l'API en local
 ```
 
 ## Règles de contribution pendant les TPs

@@ -13,7 +13,7 @@ Créer un workflow GitHub Actions qui exécute automatiquement la suite de tests
    pip install -r requirements-dev.txt
    pytest -v
    ```
-2. Créer le fichier `.github/workflows/ci.yml` (voir bloc plus bas).
+2. Créer le fichier `.github/workflows/tests.yml` (voir bloc plus bas, ou copier depuis `docs/workflows/tests.yml`).
 3. Commit + push sur `main`.
 4. Aller dans l'onglet **Actions** du repo GitHub → observer le run, cliquer dessus pour voir les logs étape par étape.
 
@@ -25,10 +25,10 @@ Créer un workflow GitHub Actions qui exécute automatiquement la suite de tests
 4. Push, ouvrir une Pull Request vers `main`.
 5. **Casser volontairement le test** (changer une assertion) pour voir la CI passer au rouge → corriger → voir la CI repasser au vert.
 
-## Bloc YAML à recopier — `.github/workflows/ci.yml`
+## Bloc YAML à recopier — `.github/workflows/tests.yml`
 
 ```yaml
-name: CI
+name: Tests
 
 on:
   push:
@@ -43,7 +43,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
+          cache: "pip"
       - name: Installer les dépendances
         run: pip install -r requirements-dev.txt
       - name: Lancer pytest
@@ -55,6 +56,6 @@ jobs:
 - Le déclencheur `on:` détermine **quand** la CI tourne (push, pull_request, schedule, manual…).
 - `runs-on` : la machine virtuelle fournie par GitHub (gratuit pour les repos publics).
 - `actions/checkout@v4` : récupère le code du repo dans la VM.
-- `actions/setup-python@v5` : installe la version Python demandée.
+- `actions/setup-python@v5` : installe la version Python demandée. Le paramètre `cache: "pip"` met les dépendances en cache entre les runs — les runs suivants sont nettement plus rapides.
 - L'ordre des `steps:` est séquentiel — chaque étape doit réussir pour passer à la suivante.
-- La config `pythonpath = ["src"]` dans `pyproject.toml` évite d'avoir à exporter `PYTHONPATH=src`.
+- La config `pythonpath = ["src"]` dans `pyproject.toml` évite d'avoir à exporter `PYTHONPATH=src` manuellement.

@@ -1,4 +1,4 @@
-name: CI2
+name: Tests & Lint
 on:
   push:
     branches: [main]
