@@ -22,3 +22,11 @@ def test_divide():
 def test_divide_by_zero():
     with pytest.raises(ValueError):
         divide(10, 0)
+
+
+def test_add_wrong():
+    assert add(2, 3) == 5
+
+
+def test_multiply_wrong():
+    assert multiply(3, 4) == 12
