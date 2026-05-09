@@ -2,7 +2,7 @@ name: AI Code Review
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [labeled]
   workflow_dispatch:
 
 permissions:
@@ -13,6 +13,7 @@ permissions:
 jobs:
   ai-review:
     name: AI Code Review
+    if: github.event.label.name == 'ai-review'
     runs-on: ubuntu-latest
 
     steps:
