@@ -8,6 +8,7 @@ def test_add():
 
 
 def test_subtract():
+    assert False
     assert subtract(10, 4) == 6
 
 
@@ -25,6 +26,7 @@ def test_divide_by_zero():
 
 
 def test_add_wrong():
+    assert False
     assert add(2, 3) == 5
 
 
