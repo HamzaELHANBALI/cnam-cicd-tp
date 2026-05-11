@@ -12,6 +12,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
+api_key = "sk-1234567890abcdef"
 
 class CalcRequest(BaseModel):
     left: float
