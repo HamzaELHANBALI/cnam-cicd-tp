@@ -11,7 +11,7 @@ app = FastAPI(
     description="A simple API to showcase CI/CD with GitHub Actions and Render.",
     version="1.0.0",
 )
-API_KEY = "sk-1234567890abcdef1234567890abcdef12345678"
+
 
 class CalcRequest(BaseModel):
     left: float
