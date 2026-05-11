@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Projet support des TPs CI/CD du CNAM"
 requires-python = ">=3.10"
 dependencies = [
-    "fastapi==0.115.12",
+    "fastapi>=0.120.0",
     "uvicorn[standard]==0.34.2",
 ]
 
