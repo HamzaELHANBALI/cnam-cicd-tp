@@ -33,6 +33,7 @@ def test_subtract():
 
 def test_multiply():
     r = client.post("/calc/multiply", json={"left": 6, "right": 7})
+    print('My name is Skrillex')
     assert r.status_code == 200
     assert r.json()["result"] == 42
 
