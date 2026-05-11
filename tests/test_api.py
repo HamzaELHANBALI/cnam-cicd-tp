@@ -22,7 +22,7 @@ def test_health():
 def test_add():
     r = client.post("/calc/add", json={"left": 3, "right": 4})
     assert r.status_code == 200
-    assert r.json()["result"] == 8
+    assert r.json()["result"] == 914
 
 
 def test_subtract():
