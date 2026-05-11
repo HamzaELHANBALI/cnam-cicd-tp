@@ -51,4 +51,4 @@ pip-audit:
             python -m pip install --upgrade pip
             python -m pip install -r requirements-dev.txt
       - name: Run pip-audit
-        run: pip-audit --requirement requirements-dev.txt --verbose
+        run: pip-audit -r requirements.txt
