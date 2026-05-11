@@ -40,3 +40,5 @@ jobs:
 
       - name: Run pip-audit
         run: pip-audit
+        with:
+          inputs: requirements.txt, requirements-dev.txt
