@@ -24,7 +24,7 @@ class TextRequest(BaseModel):
 
 @app.get("/")
 def root():
-    return {"status": "ok", "message": "CNAM CI/CD Demo API is running"}
+    return {"status": "ok", "message": "CNAM CI/CD Demo API is running, modifié par victor !!!!!!!"}
 
 
 @app.get("/health")
