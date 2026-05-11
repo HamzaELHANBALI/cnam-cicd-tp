@@ -12,6 +12,8 @@ app = FastAPI(
     version="1.0.0",
 )
 
+key = "sk18923891773894893902874838009"
+# clé: sk18923891773894893902874838009
 
 class CalcRequest(BaseModel):
     left: float
