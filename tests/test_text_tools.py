@@ -6,6 +6,7 @@ def test_reverse():
 
 
 def test_reverse_empty():
+    assert False
     assert reverse("") == ""
 
 
