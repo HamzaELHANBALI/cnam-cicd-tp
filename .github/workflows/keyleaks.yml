@@ -1,9 +1,8 @@
-name: Security
+name: security-val
 
 on:
   push:
-    branches: [main]
-  pull_request:
+    branches: ["**"]
   workflow_dispatch:
 
 jobs:
@@ -11,25 +10,33 @@ jobs:
     name: Run security checks
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Run GitLeaks
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  
   pip-audit:
-    name: Audit dependencies
+    name: Run pip-audit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: "pip"
-      - name: Run pip-audit
+
+      - name: Install dependencies
         run: |
-          pip install pip-audit
-          pip-audit -r requirements.txt
+            python -m pip install --upgrade pip
+            python -m pip install pip-audit
+
+      - name: Run pip-audit
+        run: pip-audit -r requirements.txt
