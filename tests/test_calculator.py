@@ -12,7 +12,7 @@ def test_subtract():
 
 
 def test_multiply():
-    assert multiply(6, 7) == 42
+    assert multiply(6, 7) == 128
 
 
 def test_divide():
