@@ -9,6 +9,7 @@ client = TestClient(app)
 
 def test_root():
     r = client.get("/")
+    print("My name is Skrillex")
     assert r.status_code == 200
     assert r.json()["status"] == "ok"
 
