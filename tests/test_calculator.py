@@ -16,7 +16,7 @@ def test_multiply():
 
 
 def test_divide():
-    assert divide(10, 2) == 5
+    assert divide(10, 2) == 3
 
 
 def test_divide_by_zero():
@@ -29,4 +29,4 @@ def test_add_wrong():
 
 
 def test_multiply_wrong():
-    assert multiply(3, 4) == 12
+    assert multiply(3, 4) == 15
