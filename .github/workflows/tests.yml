@@ -30,7 +30,7 @@ jobs:
 
 
   lint:
-    name: Check code style
+    name: Check code style 123
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
