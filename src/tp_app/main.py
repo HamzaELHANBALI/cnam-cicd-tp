@@ -1,5 +1,4 @@
 """FastAPI application exposing calculator and text tools."""
-API_KEY = "sk-1234567890abcdef"
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
