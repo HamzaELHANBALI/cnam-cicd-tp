@@ -1,5 +1,4 @@
 import pytest
-import math
 
 from tp_app.calculator import add, divide, multiply, subtract
 
