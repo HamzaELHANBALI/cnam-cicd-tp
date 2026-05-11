@@ -27,6 +27,7 @@ jobs:
     
       - name: Run tests
         run: pytest -v
+  
   lint:
     name: Check code style
     runs-on: ubuntu-latest
