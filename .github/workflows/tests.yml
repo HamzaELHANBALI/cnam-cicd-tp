@@ -1,9 +1,29 @@
+<<<<<<< feature/victor-tp1-testunitaires
+name: test-victor
+=======
 name: tests-val
+>>>>>>> main
 
 on:
   push:
     branches: [main]
   pull_request:
+<<<<<<< feature/victor-tp1-testunitaires
+    # branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4 # Clone the repository to the runner
+
+      - name: Set up Python
+        uses: actions/setup-python@v5 # install Python on the runner
+=======
   workflow_dispatch:
 
 jobs:
@@ -16,14 +36,24 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v5
+>>>>>>> main
         with:
           python-version: "3.13"
           cache: "pip"
 
       - name: Install dependencies
         run: |
+<<<<<<< feature/victor-tp1-testunitaires
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Run tests
+        run: |
+          pytest -v
+=======
             python -m pip install --upgrade pip
             python -m pip install -r requirements-dev.txt
     
       - name: Run tests
         run: pytest -v
+>>>>>>> main
