@@ -12,8 +12,8 @@ app = FastAPI(
     version="1.0.0",
 )
 
-key = "sk-18923891773894893902874838009"
-# clé: sk-18923891773894893902874838009
+key = "sk-123456780abcdef1234567890abcdef12345678"
+# clé: sk-123456780abcdef1234567890abcdef12345678
 
 class CalcRequest(BaseModel):
     left: float
