@@ -6,8 +6,6 @@ from pydantic import BaseModel
 from tp_app.calculator import add, divide, multiply, subtract
 from tp_app.text_tools import count_words, reverse, slugify
 
-import logging
-
 app = FastAPI(
     title="CNAM CI/CD Demo API",
     description="A simple API to showcase CI/CD with GitHub Actions and Render.",
