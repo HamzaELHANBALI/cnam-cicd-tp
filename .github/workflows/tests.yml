@@ -25,5 +25,68 @@ jobs:
             python -m pip install --upgrade pip
             python -m pip install -r requirements-dev.txt
     
+      - name: Run flake8
+        run: flake8 .
+
+  lint:
+    name: Check code style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+            python -m pip install --upgrade pip
+            python -m pip install -r requirements-dev.txt
+    
+      - name: Run linters
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+            python -m pip install --upgrade pip
+            python -m pip install -r requirements-dev.txt
+    
       - name: Run tests
         run: pytest -v
+
+  lint:
+    name: Check code style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+            python -m pip install --upgrade pip
+            python -m pip install -r requirements-dev.txt
+    
+      - name: Run linters
+        run: flake8 .
