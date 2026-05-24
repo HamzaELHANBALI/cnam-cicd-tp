@@ -29,7 +29,7 @@ jobs:
         run: pytest -v
   
   lint:
-    name: Check code style
+    name: Check code style 123
     runs-on: ubuntu-latest
 
     steps:
